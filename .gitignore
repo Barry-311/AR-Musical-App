@@ -101,6 +101,6 @@ __MACOSX/
 
 UserSettings/Layouts/*.dwlt
 
-/buildSample
-/build.zip
-/Packages/com.ptc.vuforia.engine-*.tgz
+/AR Music/buildSample
+AR Music/build.zip
+AR Music/Packages/com.ptc.vuforia.engine-11.2.4.tgz
