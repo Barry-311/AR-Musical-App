@@ -9,10 +9,3 @@ MonoImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 163598
-  packageName: Vuforia Engine
-  packageVersion: 11.2.4
-  assetPath: Assets/Editor/Migration/AddVuforiaEnginePackage.cs
-  uploadId: 754463

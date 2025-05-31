@@ -6,10 +6,3 @@ NativeFormatImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 163598
-  packageName: Vuforia Engine
-  packageVersion: 11.2.4
-  assetPath: Assets/SamplesResources/AugmentationAssets/Textures/Astronaut/Materials/Astronaut_AO.mat
-  uploadId: 754463

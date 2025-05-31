@@ -180,10 +180,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 163598
-  packageName: Vuforia Engine
-  packageVersion: 11.2.4
-  assetPath: Assets/Common/Icons/Android/AdaptiveIcons/ForeGround_x324.png
-  uploadId: 754463
