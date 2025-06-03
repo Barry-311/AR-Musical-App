@@ -6,10 +6,14 @@ using UnityEngine;
 public class AudioPeer : MonoBehaviour
 {
     AudioSource _audioSource;
-    public static float[] _samples = new float[512]; // 512 is the default size for GetSpectrumData
-    public static float[] _freqBand = new float[8]; // 8 frequency bands for audio visualization
-    public static float[] _bandBuffer = new float[8]; // Buffer for smoothing the frequency bands
+    float[] _samples = new float[512]; // 512 is the default size for GetSpectrumData
+    float[] _freqBand = new float[8]; // 8 frequency bands for audio visualization
+    float[] _bandBuffer = new float[8]; // Buffer for smoothing the frequency bands
     float[] _bufferDecrease = new float[8]; // Buffer decrease for smoothing effect
+
+    float[] _freqBandHighest = new float[8]; // Highest values for each frequency band, if needed
+    public static float[] _audioBand = new float[8]; // Audio bands for visualization, can be used for different effects
+    public static float[] _audioBandBuffer = new float[8]; // Audio band buffer for smoothing
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +27,20 @@ public class AudioPeer : MonoBehaviour
         GetSpectrumAudioSource();
         MakeFrequencyBands();
         BandBuffer();
+        CreateAudioBands();
+    }
+
+    void CreateAudioBands()
+    {
+        for (int i = 0; i < 8; i++)
+        {
+            if (_freqBand[i] > _freqBandHighest[i])
+            {
+                _freqBandHighest[i] = _freqBand[i]; // Update the highest value for this band
+            }
+            _audioBand[i] = _freqBand[i] / _freqBandHighest[i]; // Normalize the frequency band
+            _audioBandBuffer[i] = _bandBuffer[i] / _freqBandHighest[i]; // Normalize the band buffer
+        }
     }
 
     void GetSpectrumAudioSource()
