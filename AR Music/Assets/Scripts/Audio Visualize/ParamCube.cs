@@ -17,10 +17,12 @@ public class ParamCube : MonoBehaviour
     public bool _useBuffer = true;
 
     private Material _material;
+    private Vector3 _startPosition;
 
     void Start()
     {
         _material = GetComponent<Renderer>().materials[0];
+        _startPosition = transform.localPosition;
 
         if (float.IsNaN(_startScale) || float.IsInfinity(_startScale))
             _startScale = 1f;
@@ -70,7 +72,7 @@ public class ParamCube : MonoBehaviour
             if (float.IsNaN(posY) || float.IsInfinity(posY))
                 posY = _startScale / 2f;
 
-            transform.localPosition = new Vector3(transform.localPosition.x, posY, transform.localPosition.z);
+            transform.localPosition = new Vector3(_startPosition.x, _startPosition.y + posY, _startPosition.z);
         }
 
         if (!_useBuffer)
@@ -87,7 +89,7 @@ public class ParamCube : MonoBehaviour
             if (float.IsNaN(posY) || float.IsInfinity(posY))
                 posY = _startScale / 2f;
 
-            transform.localPosition = new Vector3( transform.localPosition.x, posY, transform.localPosition.z);
+            transform.localPosition = new Vector3(_startPosition.x, _startPosition.y + posY, _startPosition.z);
         }
     }
 }
