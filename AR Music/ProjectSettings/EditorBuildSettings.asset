@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FoodPackage.unity
+    guid: 615da9ae39f045b439c8bb8a40c91453
+  - enabled: 0
+    path: Assets/MediaPipeUnity/Samples/Scenes/Hand Landmark Detection/Hand Landmark
+      Detection.unity
+    guid: 98d49dcfe667ea822a91d6b74f7cb2e9
+  m_configObjects: {}
