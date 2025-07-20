@@ -19,4 +19,17 @@ public class AnimationTriggerByButton : MonoBehaviour
             Debug.Log("Waving is on cooldown.");
         }
     }
+
+    public void TriggerStanding()
+    {
+        if (Time.time >= lastTriggerTime + cooldownSeconds)
+        {
+            animator.SetTrigger("standing");
+            lastTriggerTime = Time.time;
+        }
+        else
+        {
+            Debug.Log("Standing is on cooldown.");
+        }
+    }
 }

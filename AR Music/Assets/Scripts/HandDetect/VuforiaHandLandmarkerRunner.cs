@@ -192,31 +192,31 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
             wasPressing = false;
         }
     }
-    private void OnGUI()
-    {
-        for (int i = 0; latestFingerScreenPoint != null && i < latestFingerScreenPoint.Length; i++)
-        {
-            var p = latestFingerScreenPoint[i];
-            float flippedY = UnityEngine.Screen.height - p.y;
+    //private void OnGUI()
+    //{
+    //    for (int i = 0; latestFingerScreenPoint != null && i < latestFingerScreenPoint.Length; i++)
+    //    {
+    //        var p = latestFingerScreenPoint[i];
+    //        float flippedY = UnityEngine.Screen.height - p.y;
 
-            GUI.color = UnityEngine.Color.red;
-            GUI.DrawTexture(new UnityEngine.Rect(p.x - 5, flippedY - 5, 10, 10), Texture2D.whiteTexture);
-        }
+    //        GUI.color = UnityEngine.Color.red;
+    //        GUI.DrawTexture(new UnityEngine.Rect(p.x - 5, flippedY - 5, 10, 10), Texture2D.whiteTexture);
+    //    }
 
-        //if (buttonRectTransform != null)
-        //{
-        //    Vector3[] worldCorners = new Vector3[4];
-        //    buttonRectTransform.GetWorldCorners(worldCorners);
+    //    //if (buttonRectTransform != null)
+    //    //{
+    //    //    Vector3[] worldCorners = new Vector3[4];
+    //    //    buttonRectTransform.GetWorldCorners(worldCorners);
 
-        //    Vector2 topLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[1]);
-        //    Vector2 bottomRight = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[3]);
+    //    //    Vector2 topLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[1]);
+    //    //    Vector2 bottomRight = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[3]);
 
-        //    float width = bottomRight.x - topLeft.x;
-        //    float height = topLeft.y - bottomRight.y;
+    //    //    float width = bottomRight.x - topLeft.x;
+    //    //    float height = topLeft.y - bottomRight.y;
 
-        //    // Draw button bounding box
-        //    GUI.color = UnityEngine.Color.cyan;
-        //    GUI.DrawTexture(new UnityEngine.Rect(topLeft.x, UnityEngine.Screen.height - topLeft.y, width, height), Texture2D.whiteTexture);
-        //}
-    }
+    //    //    // Draw button bounding box
+    //    //    GUI.color = UnityEngine.Color.cyan;
+    //    //    GUI.DrawTexture(new UnityEngine.Rect(topLeft.x, UnityEngine.Screen.height - topLeft.y, width, height), Texture2D.whiteTexture);
+    //    //}
+    //}
 }

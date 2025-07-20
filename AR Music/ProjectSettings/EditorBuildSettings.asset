@@ -5,11 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AR Music Stage.unity
     guid: 615da9ae39f045b439c8bb8a40c91453
   - enabled: 0
     path: Assets/MediaPipeUnity/Samples/Scenes/Hand Landmark Detection/Hand Landmark
       Detection.unity
     guid: 98d49dcfe667ea822a91d6b74f7cb2e9
+  - enabled: 1
+    path: Assets/Scenes/AR Music Stage Female.unity
+    guid: 0165f3e8eb5e8be4a87f84eca7b0e51a
   m_configObjects: {}

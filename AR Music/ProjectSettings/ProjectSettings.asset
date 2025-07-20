@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Zishuo
-  productName: AR_Music
+  productName: AR Sweet Nothing
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.12156863, g: 0.12156863, b: 0.1254902, a: 1}
@@ -162,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.Zishuo.AR_Music
+    Android: com.Zishuo.ARSweetNothing
     iPhone: com.DefaultCompany.ARFoodPackage
   buildNumber:
     Standalone: 0
@@ -171,7 +171,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 23
+  AndroidMinSdkVersion: 29
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -291,7 +291,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: ce11706b7715660448126419a677b67d, type: 3}
+      m_Icon: {fileID: 2800000, guid: 3b240ee6ce88ea04f913564a7e45b37e, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
