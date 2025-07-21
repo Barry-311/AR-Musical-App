@@ -19,7 +19,7 @@ An augmented reality application designed to enhance user music experiences thro
 ### 🎇 3. Stage Effects
 - The stage is composed of a grid of cubes.
 - Cube textures and colors change dynamically according to the music beat.
-- Effects are **driven purely by rhythm**, not affected by gesture input.
+- Effects are **driven purely by the beat**.
 
 ### ✋ 4. Gesture Recognition (Interaction)
 - Implemented using a hand tracking solution (e.g., MediaPipe or Leap Motion).
@@ -34,8 +34,8 @@ An augmented reality application designed to enhance user music experiences thro
 - **Ready Player Me** (avatar generation)
 - **Mixamo** (animation rigging)
 - **FFT-based audio analysis**
-- **Gesture Recognition System** (e.g., MediaPipe / Leap Motion)
-- **AR Foundation / Vuforia** (depending on AR platform)
+- **Gesture Recognition System** (e.g., MediaPipe)
+- **Vuforia Engine** 
 
 ---
 
@@ -47,7 +47,7 @@ An augmented reality application designed to enhance user music experiences thro
    - Audio Visualization Package
    - Ready Player Me SDK
    - Mixamo animations
-   - Hand Tracking (e.g., MediaPipe Unity Plugin)
+   - Hand Tracking (MediaPipe)
 4. Play in Editor or build to your AR-supported device
 
 ---
