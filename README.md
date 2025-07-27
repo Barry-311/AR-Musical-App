@@ -1,1 +1,63 @@
-# AR-Musical-App
+# 🎵 AR Musical Application
+
+An augmented reality application designed to enhance user music experiences through real-time audio visualization, interactive stage effects, virtual singer animation, and gesture-controlled performance switching.
+
+---
+
+## 🌈 Features
+
+### 🔊 1. Audio Visualization Cube
+- A set of cubes visualizes the audio in real time.
+- Cubes bounce based on audio frequencies using **FFT (Fast Fourier Transform)**.
+- Provides users with a visual rhythm feedback synchronized with the music.
+
+### 🕺 2. Virtual Singer Animation
+- Avatars are created using **Ready Player Me**.
+- Animations such as singing and dancing are imported from **Mixamo**.
+- The animation can be switched via gesture controls (e.g., changing dance or song actions).
+
+### 🎇 3. Stage Effects
+- The stage is composed of a grid of cubes.
+- Cube textures and colors change dynamically according to the music beat.
+- Effects are **driven purely by the beat**.
+
+### ✋ 4. Gesture Recognition (Interaction)
+- Implemented using a hand tracking solution (e.g., MediaPipe or Leap Motion).
+- Gestures do **not** control the stage.
+- Instead, they trigger changes in the **singer’s animation** to provide a sense of performance control.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Unity 3D**
+- **Ready Player Me** (avatar generation)
+- **Mixamo** (animation rigging)
+- **FFT-based audio analysis**
+- **Gesture Recognition System** (e.g., MediaPipe)
+- **Vuforia Engine** 
+
+---
+
+## 🚀 Getting Started
+
+1. Clone this repository
+2. Open the project in Unity (recommended Unity version: `202x.x.x`)
+3. Import required plugins:
+   - Audio Visualization Package
+   - Ready Player Me SDK
+   - Mixamo animations
+   - Hand Tracking (MediaPipe)
+4. Play in Editor or build to your AR-supported device
+
+---
+
+## 📸 Project Demo Screenshots
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b1afb1d5-7620-4988-935e-250d37a3dc2a" width="45%">
+  <img src="https://github.com/user-attachments/assets/c9304dc3-1f26-4d53-9f28-b35822d5c300" width="45%">
+</p>
+
+
+
