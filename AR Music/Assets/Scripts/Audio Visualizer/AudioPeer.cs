@@ -15,13 +15,11 @@ public class AudioPeer : MonoBehaviour
     public static float[] _audioBand = new float[64]; // Audio bands for visualization, can be used for different effects
     public static float[] _audioBandBuffer = new float[64]; // Audio band buffer for smoothing
 
-    // Start is called before the first frame update
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetSpectrumAudioSource();

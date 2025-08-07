@@ -13,9 +13,6 @@ public class ParamCube : MonoBehaviour
     [Header("To")]
     public float _scaleMultiplier = 10f;
 
-    [Header("Use Buffer")]
-    public bool _useBuffer = true;
-
     private Material _material;
     private Vector3 _startPosition;
 
@@ -44,52 +41,29 @@ public class ParamCube : MonoBehaviour
         }
 
         // Get the raw and buffer values for the specified band
-        float rawValue = AudioPeer._audioBand[_band];
         float bufferValue = AudioPeer._audioBandBuffer[_band];
 
         // Calculate the Y scale values based on the raw and buffer values
-        float noBufferY = (rawValue * _scaleMultiplier) + _startScale;
         float bufferY = (bufferValue * _scaleMultiplier) + _startScale;
 
         // If the values are NaN or Infinity, reset them to _startScale
-        if (float.IsNaN(noBufferY) || float.IsInfinity(noBufferY)) noBufferY = _startScale;
         if (float.IsNaN(bufferY) || float.IsInfinity(bufferY)) bufferY = _startScale;
 
-        if (_useBuffer)
+        // 1. Set localScale as (x, bufferY, z)
+        transform.localScale = new Vector3(transform.localScale.x, bufferY, transform.localScale.z);
+
+        // 2. Use bufferValue to color the material, first check if bufferValue is not NaN/Infinity
+        if (!float.IsNaN(bufferValue) && !float.IsInfinity(bufferValue))
         {
-            // 1. Set localScale as (x, bufferY, z)
-            transform.localScale = new Vector3(transform.localScale.x, bufferY, transform.localScale.z);
-
-            // 2. Use bufferValue to color the material, first check if bufferValue is not NaN/Infinity
-            if (!float.IsNaN(bufferValue) && !float.IsInfinity(bufferValue))
-            {
-                Color color = new Color(bufferValue, bufferValue, bufferValue);
-                _material.SetColor ("_EmissionColor", color);
-            }
-
-            // 3. Adjust localPosition so the bottom of the cube is on the ground (posY = bufferY/2)
-            float posY = bufferY / 2f;
-            if (float.IsNaN(posY) || float.IsInfinity(posY))
-                posY = _startScale / 2f;
-
-            transform.localPosition = new Vector3(_startPosition.x, _startPosition.y + posY, _startPosition.z);
+            Color color = new Color(bufferValue, bufferValue, bufferValue);
+            _material.SetColor("_EmissionColor", color);
         }
 
-        if (!_useBuffer)
-        {
-            transform.localScale = new Vector3(transform.localScale.x, noBufferY, transform.localScale.z);
+        // 3. Adjust localPosition so the bottom of the cube is on the ground (posY = bufferY/2)
+        float posY = bufferY / 2f;
+        if (float.IsNaN(posY) || float.IsInfinity(posY))
+            posY = _startScale / 2f;
 
-            if (!float.IsNaN(rawValue) && !float.IsInfinity(rawValue))
-            {
-                Color color = new Color(rawValue, rawValue, rawValue);
-                _material.SetColor("_EmissionColor", color);
-            }
-
-            float posY = noBufferY / 2f;
-            if (float.IsNaN(posY) || float.IsInfinity(posY))
-                posY = _startScale / 2f;
-
-            transform.localPosition = new Vector3(_startPosition.x, _startPosition.y + posY, _startPosition.z);
-        }
+        transform.localPosition = new Vector3(_startPosition.x, _startPosition.y + posY, _startPosition.z);
     }
 }

@@ -42,7 +42,7 @@ public class FingertipUIButtonSystem : MonoBehaviour
                         {
                             Debug.Log($"[{btn.name}] is on cooldown.");
                         }
-                        break; // 当前按钮被命中，无需检查其他手
+                        break;
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class FingertipUIButtonSystem : MonoBehaviour
 
         canvasButtons.AddRange(canvasRoot.GetComponentsInChildren<Button>(true));
         Debug.Log($"Refreshed and registered {canvasButtons.Count} buttons in canvas.");
-        // 初始化冷却状态
+
         foreach (var btn in canvasButtons)
         {
             buttonCooldowns[btn] = -Mathf.Infinity;

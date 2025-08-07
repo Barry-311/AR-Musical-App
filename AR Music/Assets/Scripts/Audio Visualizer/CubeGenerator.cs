@@ -11,7 +11,6 @@ public class OnImageTargetGenerateStage : MonoBehaviour
     private ObserverBehaviour observer;
     private bool hasGenerated = false;
 
-    // 新增：用于控制 Cube 群体旋转
     private GameObject cubeGroup;
 
     void Start()
@@ -42,10 +41,8 @@ public class OnImageTargetGenerateStage : MonoBehaviour
 
     void GenerateStageAndCubes()
     {
-        // 保持舞台不动，作为中心
         GameObject stage = Instantiate(stagePrefab, transform.position, Quaternion.identity, transform);
 
-        // 新增：生成 Cube Group 空对象，用于绕舞台旋转
         cubeGroup = new GameObject("CubeGroup");
         cubeGroup.transform.parent = transform;
         cubeGroup.transform.localPosition = Vector3.zero;
@@ -67,7 +64,6 @@ public class OnImageTargetGenerateStage : MonoBehaviour
 
     void Update()
     {
-        // 让 cubeGroup 旋转，实现环绕舞台运动
         if (cubeGroup != null)
         {
             cubeGroup.transform.Rotate(Vector3.up * 20f * Time.deltaTime, Space.Self);

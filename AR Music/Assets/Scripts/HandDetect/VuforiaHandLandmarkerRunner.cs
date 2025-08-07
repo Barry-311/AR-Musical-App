@@ -31,9 +31,6 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
     {
         config.NumHands = 4;
         Debug.Log("Application.targetFrameRate" + Application.targetFrameRate);
-#if UNITY_IOS
-        Application.targetFrameRate = 60;
-#endif
     }
 
     void Update()
@@ -73,7 +70,7 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
         yield return WaitForVuforiaVideoTexture();
 
 
-        // 从Vuforia初始化摄像头纹理
+        // Initialize camera texture and pixel buffer
         var bgTexture = VuforiaBehaviour.Instance.VideoBackground.VideoBackgroundTexture;
 
         RenderTexture rt = new RenderTexture(bgTexture.width, bgTexture.height, 0, RenderTextureFormat.ARGB32);
@@ -92,14 +89,14 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
 
             yield return waitForEndOfFrame;
 
-            // 获取Vuforia当前视频背景纹理
+            // Get Camera texture
             if (VuforiaBehaviour.Instance.VideoBackground.VideoBackgroundTexture == null)
             {
                 Debug.LogWarning("Vuforia Video Background Texture is null");
                 continue;
             }
 
-            // 使用 Graphics.Blit 从RenderTexture转换到Texture2D
+            // Use Graphics.Blit to change RenderTexture to Texture2D
             Graphics.Blit(VuforiaBehaviour.Instance.VideoBackground.VideoBackgroundTexture, rt);
 
             RenderTexture.active = rt;
@@ -125,7 +122,6 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
         float rawY = lm.y;
 
 #if !UNITY_EDITOR
-        // x/y 对调
         float tmp = rawX;
         rawX = rawY;
         rawY = tmp;
@@ -192,31 +188,4 @@ public class VuforiaHandLandmarkerRunner : VisionTaskApiRunner<HandLandmarker>
             wasPressing = false;
         }
     }
-    //private void OnGUI()
-    //{
-    //    for (int i = 0; latestFingerScreenPoint != null && i < latestFingerScreenPoint.Length; i++)
-    //    {
-    //        var p = latestFingerScreenPoint[i];
-    //        float flippedY = UnityEngine.Screen.height - p.y;
-
-    //        GUI.color = UnityEngine.Color.red;
-    //        GUI.DrawTexture(new UnityEngine.Rect(p.x - 5, flippedY - 5, 10, 10), Texture2D.whiteTexture);
-    //    }
-
-    //    //if (buttonRectTransform != null)
-    //    //{
-    //    //    Vector3[] worldCorners = new Vector3[4];
-    //    //    buttonRectTransform.GetWorldCorners(worldCorners);
-
-    //    //    Vector2 topLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[1]);
-    //    //    Vector2 bottomRight = RectTransformUtility.WorldToScreenPoint(Camera.main, worldCorners[3]);
-
-    //    //    float width = bottomRight.x - topLeft.x;
-    //    //    float height = topLeft.y - bottomRight.y;
-
-    //    //    // Draw button bounding box
-    //    //    GUI.color = UnityEngine.Color.cyan;
-    //    //    GUI.DrawTexture(new UnityEngine.Rect(topLeft.x, UnityEngine.Screen.height - topLeft.y, width, height), Texture2D.whiteTexture);
-    //    //}
-    //}
 }
